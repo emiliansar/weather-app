@@ -1,5 +1,5 @@
 {
-   "weather_api": {
+   "https://api.openweathermap.org/data/2.5/weather?lat={55.65888595581055}&lon={37.98846054077148}&appid={bed93228293f5729c79ad41dfa32913d}": {
       "coord": {
          "lon": 7.367,
          "lat": 45.133
