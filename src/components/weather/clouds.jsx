@@ -1,18 +1,19 @@
-export function Clouds({ data }) {
+import { Cloud } from "lucide-react"
 
-    if (!data) {
-        return null
-    } else if (!data.clouds) {
+export function Clouds({ clouds }) {
+
+    if (!clouds) {
         return null
     }
 
-    const cloud = data.clouds
-
     return (
         <>
-            <div className="flex--item">  
-                <h3>Облака</h3>
-                <p>Облачность: <span>{cloud.all}</span></p>
+            <div className="info--widget widget clouds">  
+                <h3 className="widget--item widget--title">
+                    <span>Облака</span>
+                    <Cloud />
+                </h3>
+                <p className="widget--item widget--text"><span>Облачность</span> <span>{clouds.all} %</span></p>
             </div>
         </>
     )

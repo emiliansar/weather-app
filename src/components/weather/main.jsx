@@ -1,31 +1,27 @@
-export function Main({ data }) {
-    
-    if (!data) {
-        return null
-    } else if(!data.main) {
-        return null
-    }
+import { Thermometer } from "lucide-react";
 
-    const main = data.main
-
+export function Main({ main }) {
     return (
         <>
-            <div className="flex--item">
-                <h3>Главное</h3>
+            <div className="info--widget widget temp">
+                <h3 className="widget--item widget--title">
+                    <span>Температура</span>
+                    <Thermometer />
+                </h3>
                 {main.temp ? (
-                    <p>Температура: <span>{main.temp}</span></p>
+                    <p className="widget--item widget--text"><span>Текущая</span> <span>{Math.round(main.temp)} °C</span></p>
                 ): null}
                 {main.feels_like ? (
-                    <p>Ощущается как: <span>{main.feels_like}</span></p>
+                    <p className="widget--item widget--text"><span>Ощущается</span><span>{Math.round(main.feels_like)} °C</span></p>
                 ): null}
                 {main.temp_min ? (
-                    <p>Минимальная сегодня: <span>{main.temp_min}</span></p>
+                    <p className="widget--item widget--text"><span>Минимальная</span> <span>{Math.round(main.temp_min)} °C</span></p>
                 ): null}
                 {main.temp_max ? (
-                    <p>Максимальная сегодня: <span>{main.temp_max}</span></p>
+                    <p className="widget--item widget--text"><span>Максимальная</span> <span>{Math.round(main.temp_max)} °C</span></p>
                 ): null}
                 {main.humidity ? (
-                    <p>Влажность: <span>{main.humidity}</span></p>
+                    <p className="widget--item widget--text"><span>Влажность</span> <span>{main.humidity} %</span></p>
                 ): null}
             </div>
         </>

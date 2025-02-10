@@ -1,22 +1,23 @@
-export function Weather({ data }) {
+export function Weather({ weather }) {
 
-    if (!data) {
-        return null
-    } else if (!data.weather[0]) {
-        return null
-    }
-
-    const weather = data.weather[0]
+    // const weather = data.weather[0]
+    if (weather.main == "Thunderstorm") weather.main = "Гроза"
+    if (weather.main == "Drizzle") weather.main = "Морось"
+    if (weather.main == "Rain") weather.main = "Дождь"
+    if (weather.main == "Snow") weather.main = "Снег"
+    if (weather.main == "Clouds") weather.main = "Облака"
+    if (weather.main == "Mist") weather.main = "Туман"
 
     return (
         <>
-            <div className="flex--item">
-                <h3>Погода</h3>
+            <div className="info--widget widget whr">
+                <h3 className="widget--item widget--title"><span>Погода</span> <img src={`https://rodrigokamada.github.io/openweathermap/images/${weather.icon}_t.png`} alt="" /></h3>
+                
                 {weather.main ? (
-                    <p>{weather.main}</p>
+                    <p className="widget--item widget--text">{weather.main}</p>
                 ) : null}
                 {weather.description ? (
-                    <p>{weather.description}</p>
+                    <p className="widget--item widget--text">{weather.description}</p>
                 ) : null}
             </div>
         </>

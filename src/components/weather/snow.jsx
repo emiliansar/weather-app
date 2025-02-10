@@ -1,17 +1,13 @@
-export function Snow({ data }) {
+export function Snow({ snow }) {
 
-    if(!data) {
-        return null
-    } else if (!data.snow) {
+    if(!snow) {
         return null
     }
 
-    const snow = data.snow
-
     return (
-        <div className="flex--item">
-            <h3>Снег</h3>
-            <p>Осадки: <span>{snow["1h"]}</span> мм/ч</p>
+        <div className="info--widget widget snow">
+            <h3 className="widget--item widget--title">Снег</h3>
+            <p className="widget--item widget--text"><span>Осадки</span> <span>{snow["1h"]} мм/ч</span></p>
         </div>
     )
 }

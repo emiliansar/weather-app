@@ -1,17 +1,13 @@
-export function Rain({ data }) {
+export function Rain({ rain }) {
 
-    if(!data) {
+    if(!rain) {
         return null
-    } else if (!data.rain) {
-        return null
-    }
-
-    const rain = data.rain
+    } 
 
     return (
-        <div className="flex--item">
-            <h3>Дождь</h3>
-            <p>Осадки: <span>{rain["1h"]}</span> мм/ч</p>
+        <div className="info--widget widget temp">
+            <h3 className="widget--item widget--title">Дождь</h3>
+            <p className="widget--item widget--text"><span>Осадки</span> <span>{rain["1h"]} мм/ч</span></p>
         </div>
     )
 }

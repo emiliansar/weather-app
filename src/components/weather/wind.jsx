@@ -1,25 +1,26 @@
-export function Wind({ data }) {
+import { Tornado } from "lucide-react";
 
-    if (!data) {
-        return null
-    } else if (!data.wind) {
+export function Wind({ wind }) {
+
+    if (!wind) {
         return null
     }
 
-    const wind = data.wind
-
     return (
         <>
-            <div className="flex--item">
-                <h3>Ветер</h3>
+            <div className="info--widget widget wind">
+                <h3 className="widget--item widget--title">
+                    <span>Ветер</span>
+                    <Tornado />
+                </h3>
                 {wind.speed ? (
-                    <p>Скорость: <span>{wind.speed}</span></p>
+                    <p className="widget--item widget--text"><span>Скорость</span> <span>{wind.speed} м/сек</span></p>
                 ): null}
                 {wind.deg ? (
-                    <p>Направление: <span>{wind.deg}</span></p>
+                    <p className="widget--item widget--text"><span>Направление</span> <span>{wind.deg} град.</span></p>
                 ): null}
                 {wind.gust ? (
-                    <p>Порывы: <span>{wind.gust}</span></p>
+                    <p className="widget--item widget--text"><span>Порывы</span> <span>{wind.gust} м/сек</span></p>
                 ): null}
             </div>
         </>
